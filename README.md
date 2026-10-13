@@ -2,9 +2,9 @@
 
 Implement exactly the screenshot and nothing else
 
-This project was built with [Lovable](https://lovable.dev).
 
-## Build with Lovable
+
+## Build 
 
 Continue developing this project in the [Lovable editor](https://lovable.dev/projects/fa2c13c5-a03a-4f97-9fe3-76e61e180cac).
 
