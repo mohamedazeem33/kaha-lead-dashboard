@@ -13,6 +13,14 @@ import {
 } from "@/components/ui/card";
 
 export const Route = createFileRoute("/auth")({
+  beforeLoad: async () => {
+    const {
+      data: { user },
+    } = await supabase.auth.getUser();
+    if (user) {
+      throw redirect({ to: "/" });
+    }
+  },
   head: () => ({
     meta: [
       { title: "Sign in — Kaha Leads" },
@@ -47,7 +55,8 @@ function AuthPage() {
           password,
         });
         if (error) throw error;
-        navigate({ to: "/" });
+        // Full reload so the dashboard loads with a fresh session
+        window.location.assign("/");
       } else {
         const { error } = await supabase.auth.signUp({ email, password });
         if (error) throw error;
